@@ -1,18 +1,24 @@
 var gulp = require('gulp');
 var template = require('gulp-template');
+var fileinclude = require('gulp-file-include');
+var argv = require('minimist')(process.argv.slice(1));
 
-var emailId = '450';
-var emailQuote = 'Boas compras!';
+var emailId = argv.id || '450';
+var emailQuote = argv.quote || 'Boas compras!';
 
 gulp.task('copy', function() {
-  return gulp.src('./template/**.*')
-    .pipe(gulp.dest(emailId));
+  gulp.src('./template/**.*')
+    .pipe(gulp.dest('./' + emailId));
 });
 
-gulp.task('quote', function() {
-  return gulp.src('./template/index.html')
-    .pipe(template({quote: emailQuote}))
-    .pipe(gulp.dest(emailId));
+gulp.task('build', function() {
+  gulp.src('./template/index.html')
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: __dirname + '/template'
+    }))
+    .pipe(template({quote: emailQuote, emailId: emailId}))
+    .pipe(gulp.dest('./' + emailId + '/build'));
 });
 
-gulp.task('default', ['copy', 'quote']);
+gulp.task('default', ['copy', 'build']);
