@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AgtLucas/gulp-email#readme",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-copy": "0.0.2"
   }
 }
