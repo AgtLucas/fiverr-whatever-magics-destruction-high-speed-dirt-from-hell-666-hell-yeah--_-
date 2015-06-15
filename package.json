@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AgtLucas/gulp-email/issues"
   },
-  "homepage": "https://github.com/AgtLucas/gulp-email#readme"
+  "homepage": "https://github.com/AgtLucas/gulp-email#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }
