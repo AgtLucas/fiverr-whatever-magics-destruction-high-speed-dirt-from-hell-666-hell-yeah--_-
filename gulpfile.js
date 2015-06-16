@@ -19,7 +19,7 @@ gulp.task('build', function() {
     .pipe(template(emailObj))
     .pipe(fileinclude({
       prefix: '@@',
-      basepath: path.join(__dirname, '../', emailId)
+      basepath: path.join(__dirname, '../', emailId.toString())
     }))
     .pipe(template(emailObj))
     .pipe(rename(function (path) {
