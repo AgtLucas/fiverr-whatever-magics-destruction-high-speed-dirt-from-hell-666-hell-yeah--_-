@@ -2,4 +2,4 @@
 
 C'est la vie
 
-License: [MIT](http://mit.lucas.ninja)
+License: [MIT](http://mit.lucas.ninja).
